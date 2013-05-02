@@ -1,0 +1,7 @@
+Code run by Sergey Sviridenko
+Environment variable UWHPSC is /home/uwhpsc/Documents/uwhpsc
+Environment variable MYHPSC is ** not set **
+Imported numpy ok
+Imported matplotlib ok
+Imported pylab ok
+mported pylab ok
