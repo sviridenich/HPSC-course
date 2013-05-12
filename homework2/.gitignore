@@ -1,2 +1,7 @@
 #pictures
 *.png
+
+
+#compiled files
+
+*.pyc
