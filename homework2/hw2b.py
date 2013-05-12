@@ -84,7 +84,21 @@ def test_quad1():
     # test that all elements have small error:
     assert np.allclose(c, c_true), \
         "Incorrect result, c = %s, Expected: c = %s" % (c,c_true)
-        
+
+def test_quad2():
+    """
+    Test code, no return value or exception if test runs properly.
+    """
+    xi = np.array([-1.,  0.,  1.])
+    yi = np.array([ 1.,  0.,  1.])
+    c = quad_interp(xi,yi)
+    c_true = np.array([0.,  0.,  1.])
+    print "c =      ", c
+    print "c_true = ", c_true
+    # test that all elements have small error:
+    assert np.allclose(c, c_true), \
+        "Incorrect result, c = %s, Expected: c = %s" % (c,c_true)        
+
 if __name__=="__main__":
     # "main program"
     # the code below is executed only if the module is executed at the command line,
@@ -94,4 +108,5 @@ if __name__=="__main__":
     # not if the module is imported.
     print "Running test..."
     test_quad1()
+    test_quad2()
 
