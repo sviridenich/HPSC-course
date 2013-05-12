@@ -2,7 +2,7 @@
 """
 Demonstration module for quadratic interpolation.
 Update this docstring to describe your code.
-Modified by: ** your name here **
+Modified by: Sviridenich
 """
 
 
@@ -29,7 +29,9 @@ def quad_interp(xi,yi):
 
     # Set up linear system to interpolate through data points:
 
-    ### Fill in this part to compute c ###
+    A = np.vstack([np.ones(3), xi, xi**2] ).T
+    b = yi
+    c = solve(A,b)
 
     return c
 
