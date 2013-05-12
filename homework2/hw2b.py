@@ -35,6 +35,41 @@ def quad_interp(xi,yi):
 
     return c
 
+def quad_plot(xi,yi):
+    '''
+    It takes two numpy arrays xi and yi of length 3, 
+    calls quad_interp to compute c, 
+    and then plots both the interpolating polynomial and the data points, 
+    and saves the resulting figure as quadratic.png. 
+    '''
+    
+    # check inputs and print error message if not valid:
+
+    error_message = "xi and yi should have type numpy.ndarray"
+    assert (type(xi) is np.ndarray) and (type(yi) is np.ndarray), error_message
+
+    error_message = "xi and yi should have length 3"
+    assert len(xi)==3 and len(yi)==3, error_message
+
+    # calls quad_interp to compute coefficients
+    
+    c = quad_interp(xi,yi)
+    
+    # then plots both the interpolating polynomial and the data points
+    
+    x = np.linspace( xi.min() -1 ,xi.max() + 1,1001)   # points to evaluate polynomial
+    y = c[0] + c[1]*x + c[2]*x**2
+
+    plt.figure(1)       # open plot figure window
+    plt.clf()           # clear figure
+    plt.plot(x,y,'b-')  # connect points with a blue line
+
+    # Add data points  (polynomial should go through these points!)
+    plt.plot(xi,yi,'ro')   # plot as red circles
+    plt.ylim(yi.min() -1 ,yi.max() + 1)         # set limits in y for plot
+    plt.title("Data points and interpolating polynomial") 
+    plt.savefig('hw2b.png')   # save figure as .png file
+       
 
 def test_quad1():
     """
