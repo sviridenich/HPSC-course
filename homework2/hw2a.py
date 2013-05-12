@@ -1,7 +1,7 @@
 """
 Demonstration script for quadratic interpolation.
 Update this docstring to describe your code.
-Modified by: ** your name here **
+Modified by: SS
 """
 
 import numpy as np
@@ -11,12 +11,17 @@ from numpy.linalg import solve
 # Set up linear system to interpolate through data points:
 
 # Data points:
-xi = np.array([-1., 0., 2])
-yi = np.array([1., -1., 7.])
+xi = np.array([-1., 1., 2])
+yi = np.array([0., 4., 3.])
 
 # It would be better to define A in terms of the xi points.
 # Doing this is part of the homework assignment.
-A = np.array([[1., -1., 1.], [1., 0., 0.], [1., 2., 4.]])
+l = len(xi)
+A = np.zeros(shape=(l,l), dtype=float)
+
+for i in range(A.shape[1]):
+    A[:,i] = xi**i
+
 b = yi
 
 # Solve the system:
@@ -39,4 +44,4 @@ plt.ylim(-2,8)         # set limits in y for plot
 
 plt.title("Data points and interpolating polynomial")
 
-plt.savefig('demo1plot.png')   # save figure as .png file
+plt.savefig('hw2a.png')   # save figure as .png file
