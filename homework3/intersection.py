@@ -9,8 +9,10 @@ def intersect(g1vals,g2vals,x0):
     '''
     given two functions and initial guess this function returns their intersections
     '''
+      
+    x, iterations = solve(  lambda x: ( g1vals(x)[0] - g2vals(x)[0], g1vals(x)[1] - g2vals(x)[1] ) , x0)
     
-    return -1
+    return x
 
 
 def function1(x):
@@ -28,12 +30,12 @@ def function2(x):
     return x**2, 2*x    
 
 def test_intersect1():
-    actual = intersect(function1,function2,5)
+    actual = intersect(function1,function2,5.)
     expected = 2
     assert abs(actual - expected) < 1e-14
 
 def test_intersect2():
-    actual = intersect(function1,function2,-5)
+    actual = intersect(function1,function2,-5.)
     expected = 0
     assert abs(actual - expected) < 1e-14
 
@@ -41,5 +43,5 @@ def test_intersect2():
 if __name__=='__main__':
     test_intersect1()
     test_intersect2()
-
+    print("all test are passed")
 
