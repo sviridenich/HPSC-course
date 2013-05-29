@@ -5,3 +5,41 @@ Furthermore once task is solved, we need to provide some visulation.
 
 from newton import solve
 
+def intersect(g1vals,g2vals,x0):
+    '''
+    given two functions and initial guess this function returns their intersections
+    '''
+    
+    return -1
+
+
+def function1(x):
+    '''
+    implementation of linear function and its derivative
+    one of the function on which we would test our workhorse
+    '''
+    return 2*x,2
+
+def function2(x):
+    '''
+    implementation of quadratic function and its derivative
+    one of the function on which we would test our workhorse
+    '''
+    return x**2, 2*x    
+
+def test_intersect1():
+    actual = intersect(function1,function2,5)
+    expected = 2
+    assert abs(actual - expected) < 1e-14
+
+def test_intersect2():
+    actual = intersect(function1,function2,-5)
+    expected = 0
+    assert abs(actual - expected) < 1e-14
+
+
+if __name__=='__main__':
+    test_intersect1()
+    test_intersect2()
+
+
